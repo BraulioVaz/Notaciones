@@ -1,21 +1,21 @@
 package modelos;
 
 public class Pila {
-	private String[] arreglo;
+	private char[] arreglo;
 	private int indice;
 	
 	public Pila(int tam) {
-		arreglo = new String[tam];
+		arreglo = new char[tam];
 		indice = 0;
 	}
 	
-	public void push(String s) {
+	public void push(char s) {
 		if(!estaLleno()) {
 			arreglo[indice++] = s;
 		}
 	}
 	
-	public String pop() {
+	public Character pop() {
 		if(!estaVacio()) {
 			return arreglo[--indice];
 		}
