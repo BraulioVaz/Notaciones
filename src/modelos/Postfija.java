@@ -19,7 +19,7 @@ public class Postfija extends Notacion{
 				continue;
 			}
 			
-			postfija += operando;
+			postfija += operando + " ";
 			operando = "";
 				
 			if(operadores.estaVacio() || caracterActual == '(') {
@@ -37,7 +37,7 @@ public class Postfija extends Notacion{
 			
 			if(caracterActual == ')') {
 				while(operador != '(') {
-					postfija += operador;
+					postfija += operador + " ";
 					operador = operadores.pop();
 				}
 				
@@ -50,7 +50,7 @@ public class Postfija extends Notacion{
 			}
 			else if(precedencia(caracterActual) < precedencia(operador)){
 				do {
-					postfija += operador;
+					postfija += operador + " ";
 					operador = operadores.pop();
 				}while(operador != null && precedencia(caracterActual) < precedencia(operador));
 				
@@ -62,7 +62,7 @@ public class Postfija extends Notacion{
 			}
 			else {
 				if(asociatividad(caracterActual) == Notacion.IZQ_DER) {
-					postfija += operador;
+					postfija += operador + " ";
 					operadores.push(caracterActual);
 				}
 				else {
