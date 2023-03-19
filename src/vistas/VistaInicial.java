@@ -57,14 +57,17 @@ public class VistaInicial extends JPanel{
 		btnConvertir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Postfija postfija = null;
+				Prefija prefija = null;
 				
 				if(!validarEntrada()) {
 					return;
 				}
 				
 				postfija = new Postfija(txtExpresionInfija.getText());
+				prefija = new Prefija(txtExpresionInfija.getText());
 				
 				lblExpresionPostfija.setText(postfija.convertir());
+				lblExpresionPrefija.setText(prefija.convertir());
 			}
 		});
 	}
