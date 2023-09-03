@@ -65,7 +65,16 @@ public class Prefija extends Notacion{
 					pila.push(caracterActual);
 				}
 				else {
+					do {
+						prefija += " " + operador;
+						operador = pila.pop();
+					}while(operador != null && precedencia(caracterActual) > precedencia(operador));
 					
+					if(operador != null) {
+						pila.push(operador);
+					}
+					
+					pila.push(caracterActual);
 				}
 			}
 		}
